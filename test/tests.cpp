@@ -2,10 +2,9 @@
 
 #include <cstdint>
 
-#include <gtest/gtest.h>
-
 #include "circle.h"
 #include "tasks.h"
+#include <gtest/gtest.h>
 
 // --- Circle Class Tests ---
 
