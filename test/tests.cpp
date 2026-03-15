@@ -1,9 +1,9 @@
 // Copyright 2025 UNN-CS Team
 
 #include <gtest/gtest.h>
-#include <cstdint>
 #include "circle.h"
 #include "tasks.h"
+#include <cstdint>
 
 // --- Circle Class Tests ---
 
@@ -43,7 +43,8 @@ TEST(Circle_SetRadius, Radius_Negative) {
     c.setRadius(-5.0);
     EXPECT_NEAR(c.getRadius(), -5.0, 1e-9);
     EXPECT_NEAR(c.getFerence(), -10 * PI, 1e-9);
-    EXPECT_NEAR(c.getArea(), 25 * PI, 1e-9); // Area is pi * r^2, so should be positive
+    // Area is pi * r^2, so should be positive
+    EXPECT_NEAR(c.getArea(), 25 * PI, 1e-9);
 }
 
 TEST(Circle_SetFerence, Ference_2PI) {
@@ -133,14 +134,12 @@ TEST(Tasks_SwimmingPool, ProvidedValues) {
     double pathWidth = 1.0;
     double concreteCostPerSqm = 1000.0;
     double fenceCostPerMeter = 2000.0;
-    
-    PoolCosts costs = swimmingPool(poolRadius, pathWidth, concreteCostPerSqm, fenceCostPerMeter);
-    
+    PoolCosts costs = swimmingPool(poolRadius, pathWidth,
+                                   concreteCostPerSqm, fenceCostPerMeter);
     // Expected path area = PI * (4^2 - 3^2) = 7 * PI
     double expected_path_cost = (PI * (4*4 - 3*3)) * 1000.0;
     // Expected fence length = 2 * PI * 4 = 8 * PI
     double expected_fence_cost = (2 * PI * 4) * 2000.0;
-    
     EXPECT_NEAR(costs.path_cost, expected_path_cost, 1e-9);
     EXPECT_NEAR(costs.fence_cost, expected_fence_cost, 1e-9);
 }
@@ -150,9 +149,8 @@ TEST(Tasks_SwimmingPool, ZeroWidth) {
     double pathWidth = 0.0;
     double concreteCostPerSqm = 1000.0;
     double fenceCostPerMeter = 2000.0;
-
-    PoolCosts costs = swimmingPool(poolRadius, pathWidth, concreteCostPerSqm, fenceCostPerMeter);
-
+    PoolCosts costs = swimmingPool(poolRadius, pathWidth,
+                                   concreteCostPerSqm, fenceCostPerMeter);
     EXPECT_NEAR(costs.path_cost, 0.0, 1e-9);
     // Fence cost should be for the pool itself
     double expected_fence_cost = (2 * PI * 3) * 2000.0;
@@ -164,9 +162,8 @@ TEST(Tasks_SwimmingPool, ZeroCosts) {
     double pathWidth = 1.0;
     double concreteCostPerSqm = 0.0;
     double fenceCostPerMeter = 0.0;
-
-    PoolCosts costs = swimmingPool(poolRadius, pathWidth, concreteCostPerSqm, fenceCostPerMeter);
-
+    PoolCosts costs = swimmingPool(poolRadius, pathWidth,
+                                   concreteCostPerSqm, fenceCostPerMeter);
     EXPECT_NEAR(costs.path_cost, 0.0, 1e-9);
     EXPECT_NEAR(costs.fence_cost, 0.0, 1e-9);
 }

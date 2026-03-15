@@ -1,5 +1,6 @@
-#ifndef TASKS_H
-#define TASKS_H
+// Copyright 2026 UNN-CS Team
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
 
 #include "circle.h"
 
@@ -9,6 +10,7 @@ struct PoolCosts {
 };
 
 double earthAndRope(double earthRadius, double ropeExtension);
-PoolCosts swimmingPool(double poolRadius, double pathWidth, double concreteCostPerSqm, double fenceCostPerMeter);
+PoolCosts swimmingPool(double poolRadius, double pathWidth,
+                       double concreteCostPerSqm, double fenceCostPerMeter);
 
-#endif // TASKS_H
+#endif  // INCLUDE_TASKS_H_
