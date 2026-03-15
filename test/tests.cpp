@@ -1,10 +1,9 @@
 // Copyright 2025 UNN-CS Team
 
-
-#include "tasks.h"
-#include <gtest/gtest.h>
 #include <cstdint>
+#include <gtest/gtest.h>
 #include "circle.h"
+#include "tasks.h"
 
 // --- Circle Class Tests ---
 
