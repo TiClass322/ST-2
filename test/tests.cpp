@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <gtest/gtest.h>
+
 #include "circle.h"
 #include "tasks.h"
 
